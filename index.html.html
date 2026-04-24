@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Legal Launge – Free Legal Education for LLB Students</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0b1d3a;
+    --navy-light: #132848;
+    --navy-mid: #1a3560;
+    --gold: #c9a44b;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c0;
+    --cream: #faf7f0;
+    --white: #ffffff;
+    --gray-100: #f4f4f4;
+    --gray-300: #d0cfc9;
+    --gray-500: #888070;
+    --gray-700: #4a4540;
+    --text-main: #1a1612;
+    --shadow-sm: 0 2px 8px rgba(11,29,58,0.08);
+    --shadow-md: 0 6px 24px rgba(11,29,58,0.13);
+    --shadow-lg: 0 16px 48px rgba(11,29,58,0.18);
+    --radius: 10px;
+    --radius-lg: 18px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-main);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ─── UTILITY ─── */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .hidden { display: none !important; }
+  .tag {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,164,75,0.12);
+    border: 1px solid rgba(201,164,75,0.3);
+    padding: 3px 10px;
+    border-radius: 40px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500; font-size: 15px;
+    padding: 12px 26px; border-radius: 6px;
+    cursor: pointer; border: none; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.5);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-navy {
+    background: var(--navy); color: var(--white);
+  }
+  .btn-navy:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 12px; display: block;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700; color: var(--navy); line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-header p {
+    font-size: 17px; color: var(--gray-500); max-width: 560px; margin: 0 auto;
+  }
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px; margin: 18px auto 0;
+  }
+
+  /* ─── TOPBAR ─── */
+  .topbar {
+    background: var(--navy);
+    padding: 8px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.7);
+    text-align: center;
+  }
+  .topbar a { color: var(--gold-light); text-decoration: none; }
+  .topbar a:hover { text-decoration: underline; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid rgba(11,29,58,0.08);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 1140px; margin: 0 auto;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; cursor: pointer;
+  }
+  .nav-logo {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+  }
+  .nav-brand-text { line-height: 1.1; }
+  .nav-brand-text .brand-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700; color: var(--navy);
+    display: block;
+  }
+  .nav-brand-text .brand-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; letter-spacing: 1px; color: var(--gold);
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--gray-700); text-decoration: none;
+    padding: 8px 14px; border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--gray-100); }
+  .nav-links a.active { color: var(--gold); background: rgba(201,164,75,0.08); }
+  .nav-cta { margin-left: 12px; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--navy); border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--gray-100);
+    padding: 16px 24px 24px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block; font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500; color: var(--gray-700);
+    text-decoration: none; padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    position: relative; overflow: hidden;
+    padding: 80px 0 96px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,164,75,0.07) 0%, transparent 70%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 60px,
+        rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px
+      );
+  }
+  .hero-scale {
+    position: absolute; right: -40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 320px; color: rgba(201,164,75,0.04);
+    font-family: 'Playfair Display', serif;
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1140px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,164,75,0.15);
+    border: 1px solid rgba(201,164,75,0.3);
+    color: var(--gold-light);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 40px; margin-bottom: 22px;
+  }
+  .hero-badge::before { content: '⚖️'; font-size: 14px; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 900; color: var(--white); line-height: 1.12;
+    margin-bottom: 22px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 17px; color: rgba(255,255,255,0.72);
+    margin-bottom: 36px; line-height: 1.75;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 48px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 20px 16px; text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: var(--gold);
+  }
+  .stat-card .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px; margin-top: 4px;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--white); margin-bottom: 20px;
+    padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .feature-list { list-style: none; }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: rgba(255,255,255,0.8);
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list li::before {
+    content: '✓';
+    color: var(--gold); font-weight: 700; flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ─── WHY SECTION ─── */
+  .why-section {
+    padding: 96px 0; background: var(--white);
+  }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .why-card {
+    background: var(--cream);
+    border: 1px solid rgba(11,29,58,0.07);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .why-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .why-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+  .why-card:hover::after { transform: scaleX(1); }
+  .why-icon {
+    width: 54px; height: 54px; border-radius: 12px;
+    background: rgba(201,164,75,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 20px;
+  }
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--navy); margin-bottom: 10px;
+  }
+  .why-card p {
+    font-size: 15px; color: var(--gray-500); line-height: 1.65;
+  }
+
+  /* ─── COURSES SECTION ─── */
+  .courses-section { padding: 96px 0; background: var(--cream); }
+  .semester-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 48px;
+  }
+  .sem-tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 8px 20px; border-radius: 40px;
+    border: 1.5px solid var(--gray-300);
+    color: var(--gray-700); cursor: pointer;
+    background: var(--white); transition: all 0.2s;
+  }
+  .sem-tab:hover, .sem-tab.active {
+    background: var(--navy); color: var(--white);
+    border-color: var(--navy);
+  }
+  .subjects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .subject-card {
+    background: var(--white);
+    border: 1px solid rgba(11,29,58,0.07);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .subject-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+  .paper-code {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gold);
+    background: rgba(201,164,75,0.1);
+    padding: 4px 10px; border-radius: 4px;
+    display: inline-block; margin-bottom: 14px;
+  }
+  .subject-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .subject-card p {
+    font-size: 14px; color: var(--gray-500);
+    line-height: 1.6; margin-bottom: 18px;
+  }
+  .subject-includes {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;
+  }
+  .include-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; color: var(--navy);
+    background: rgba(11,29,58,0.06);
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .subject-link {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--gold); text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .subject-link:hover { gap: 10px; }
+  .optional-card {
+    grid-column: span 3;
+    background: rgba(11,29,58,0.03);
+    border: 1px dashed var(--gray-300);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    display: flex; align-items: center; gap: 28px;
+    flex-wrap: wrap;
+  }
+  .optional-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--navy); font-weight: 600;
+    flex: 0 0 auto;
+  }
+  .optional-options { display: flex; gap: 14px; flex-wrap: wrap; }
+  .opt-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 8px 18px; border-radius: 6px;
+    border: 1.5px solid var(--navy);
+    color: var(--navy); cursor: pointer;
+    background: transparent; transition: all 0.2s;
+  }
+  .opt-btn:hover { background: var(--navy); color: var(--white); }
+  .coming-soon-overlay {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    padding: 40px;
+    background: rgba(11,29,58,0.03);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--gray-300);
+    grid-column: span 3;
+  }
+  .coming-soon-overlay span {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--gray-500);
+    margin-top: 12px;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-section { padding: 96px 0; background: var(--navy); }
+  .how-section .section-header h2 { color: var(--white); }
+  .how-section .section-header p { color: rgba(255,255,255,0.55); }
+  .how-section .section-header .eyebrow { color: var(--gold); }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .step-card {
+    text-align: center; padding: 36px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 900;
+    color: rgba(201,164,75,0.15); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .step-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: var(--white);
+    margin-bottom: 10px;
+  }
+  .step-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ─── FOUNDER SECTION ─── */
+  .founder-section { padding: 96px 0; background: var(--cream); }
+  .founder-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center;
+  }
+  .founder-visual {
+    position: relative;
+  }
+  .founder-avatar {
+    width: 100%; aspect-ratio: 3/4; max-width: 340px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 80px;
+    position: relative; overflow: hidden;
+  }
+  .founder-avatar::after {
+    content: '⚖️';
+    position: absolute; bottom: -20px; right: -20px;
+    font-size: 120px; opacity: 0.08;
+  }
+  .founder-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--gold);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  .founder-badge .yrs {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 900; color: var(--navy);
+    line-height: 1;
+  }
+  .founder-badge .yrs-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; color: var(--navy); letter-spacing: 0.5px;
+  }
+  .founder-content .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 12px;
+  }
+  .founder-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px); font-weight: 700;
+    color: var(--navy); margin-bottom: 8px; line-height: 1.2;
+  }
+  .founder-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .founder-bio {
+    font-size: 16px; color: var(--gray-700);
+    margin-bottom: 28px; line-height: 1.75;
+  }
+  .cred-list {
+    list-style: none; margin-bottom: 32px;
+  }
+  .cred-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--gray-700);
+    padding: 9px 0; border-bottom: 1px solid var(--gray-100);
+  }
+  .cred-list li:last-child { border-bottom: none; }
+  .cred-list li::before {
+    content: '◆';
+    color: var(--gold); font-size: 8px; flex-shrink: 0; margin-top: 6px;
+  }
+  .founder-links { display: flex; gap: 12px; }
+
+  /* ─── FUTURE SECTION ─── */
+  .future-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2347 100%);
+  }
+  .future-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 48px;
+  }
+  .future-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 24px; display: flex; align-items: flex-start; gap: 14px;
+    transition: all 0.25s;
+  }
+  .future-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(201,164,75,0.3);
+  }
+  .future-icon { font-size: 24px; flex-shrink: 0; }
+  .future-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500; color: var(--white);
+    margin-bottom: 4px;
+  }
+  .future-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.45);
+  }
+  .future-section .section-header h2 { color: var(--white); }
+  .future-section .section-header p { color: rgba(255,255,255,0.55); }
+
+  /* ─── CONTACT SECTION ─── */
+  .contact-section { padding: 96px 0; background: var(--white); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; color: var(--navy); margin-bottom: 16px;
+  }
+  .contact-info p {
+    font-size: 16px; color: var(--gray-500); margin-bottom: 36px;
+  }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(201,164,75,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .contact-item h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--gray-500); margin-bottom: 4px;
+  }
+  .contact-item a, .contact-item p {
+    font-size: 15px; color: var(--navy); text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-item a:hover { color: var(--gold); }
+  .feedback-form {
+    background: var(--cream);
+    border: 1px solid rgba(11,29,58,0.07);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+  }
+  .feedback-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--navy); margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500; color: var(--gray-700);
+    margin-bottom: 6px; letter-spacing: 0.3px;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--text-main);
+    background: var(--white); transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--gold);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* ─── ABOUT PAGE ─── */
+  .about-hero {
+    background: var(--navy); padding: 80px 0;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .about-hero::before {
+    content: '§';
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    font-size: 400px; color: rgba(255,255,255,0.02);
+    font-family: 'Playfair Display', serif;
+  }
+  .about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 900;
+    color: var(--white); line-height: 1.1;
+    position: relative; z-index: 2;
+  }
+  .about-hero h1 span { color: var(--gold); }
+  .about-hero p {
+    font-size: 18px; color: rgba(255,255,255,0.65);
+    max-width: 580px; margin: 20px auto 0;
+    position: relative; z-index: 2;
+  }
+  .about-body { padding: 96px 0; background: var(--white); }
+  .about-two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    margin-bottom: 80px;
+  }
+  .about-two-col h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; color: var(--navy); margin-bottom: 20px;
+  }
+  .about-two-col p {
+    font-size: 16px; color: var(--gray-700); line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-bottom: 40px;
+  }
+  .problem-item {
+    background: rgba(201,164,75,0.06);
+    border: 1px solid rgba(201,164,75,0.2);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .problem-item::before { content: '⚠'; font-size: 16px; flex-shrink: 0; }
+  .problem-item p { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--gray-700); }
+  .solution-item {
+    background: rgba(11,29,58,0.04);
+    border: 1px solid rgba(11,29,58,0.08);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .solution-item::before { content: '✓'; font-size: 16px; color: var(--gold); flex-shrink: 0; font-weight: 700; }
+  .solution-item p { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--gray-700); }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    margin-top: 56px;
+  }
+  .value-card {
+    text-align: center; padding: 32px 20px;
+    background: var(--cream);
+    border: 1px solid rgba(11,29,58,0.07);
+    border-radius: var(--radius-lg);
+  }
+  .value-icon { font-size: 32px; margin-bottom: 14px; }
+  .value-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; color: var(--navy); margin-bottom: 8px;
+  }
+  .value-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: var(--gray-500);
+  }
+
+  /* ─── SUBJECT DETAIL PAGE ─── */
+  .subject-hero {
+    background: var(--navy); padding: 60px 0;
+  }
+  .breadcrumb {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .breadcrumb a { color: var(--gold-light); text-decoration: none; cursor: pointer; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .subject-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px); font-weight: 900;
+    color: var(--white); margin-bottom: 14px;
+  }
+  .subject-hero p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 640px; }
+  .subject-meta {
+    display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px;
+  }
+  .meta-pill {
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 6px 14px; border-radius: 20px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .subject-body { padding: 64px 0; }
+  .subject-layout {
+    display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start;
+  }
+  .units-list { }
+  .unit-accordion {
+    border: 1px solid rgba(11,29,58,0.08);
+    border-radius: var(--radius-lg); margin-bottom: 16px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .unit-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .unit-header:hover { background: rgba(11,29,58,0.02); }
+  .unit-header-left { display: flex; align-items: center; gap: 14px; }
+  .unit-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .unit-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--navy);
+  }
+  .unit-toggle {
+    font-size: 20px; color: var(--gray-500);
+    transition: transform 0.3s;
+  }
+  .unit-toggle.open { transform: rotate(180deg); }
+  .unit-body {
+    border-top: 1px solid rgba(11,29,58,0.07);
+    padding: 20px 24px;
+    display: none;
+  }
+  .unit-body.open { display: block; }
+  .chapter-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(11,29,58,0.05);
+  }
+  .chapter-item:last-child { border-bottom: none; }
+  .chapter-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--gray-700);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .chapter-name::before { content: '📄'; font-size: 14px; }
+  .chapter-pills { display: flex; gap: 6px; }
+  .chapter-pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+    background: rgba(11,29,58,0.06); color: var(--navy);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .chapter-pill:hover { background: var(--navy); color: var(--white); }
+  .subject-sidebar { position: sticky; top: 80px; }
+  .sidebar-card {
+    background: var(--navy); border-radius: var(--radius-lg);
+    padding: 28px; margin-bottom: 20px;
+    color: var(--white);
+  }
+  .sidebar-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--gold);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .sidebar-list { list-style: none; }
+  .sidebar-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.75);
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .sidebar-list li:last-child { border-bottom: none; }
+  .sidebar-list li::before { content: '📚'; font-size: 12px; flex-shrink: 0; }
+  .resources-card {
+    background: var(--cream);
+    border: 1px solid rgba(11,29,58,0.07);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .resources-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .resource-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid rgba(11,29,58,0.06);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: var(--gray-700);
+  }
+  .resource-item:last-child { border-bottom: none; }
+  .resource-item .icon { font-size: 16px; flex-shrink: 0; }
+  .coming-badge {
+    font-size: 10px; background: rgba(201,164,75,0.15);
+    color: var(--gold); padding: 2px 6px; border-radius: 4px;
+    margin-left: auto; flex-shrink: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060f1e; color: rgba(255,255,255,0.6);
+  }
+  .footer-main {
+    max-width: 1140px; margin: 0 auto; padding: 64px 24px 48px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  }
+  .footer-brand p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; line-height: 1.7; margin: 16px 0 24px;
+    color: rgba(255,255,255,0.45);
+  }
+  .footer-social { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); font-size: 16px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .footer-col h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; margin-bottom: 10px;
+  }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.5); text-decoration: none;
+    cursor: pointer; transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 24px;
+    max-width: 1140px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: rgba(255,255,255,0.35);
+  }
+  .footer-bottom span { color: var(--gold); }
+
+  /* ─── PAGE ANIMATIONS ─── */
+  .page { animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    background: var(--navy); color: var(--white);
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    padding: 14px 20px; border-radius: 8px;
+    border-left: 4px solid var(--gold);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(200%); transition: transform 0.3s;
+  }
+  .toast.show { transform: translateX(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .subjects-grid { grid-template-columns: 1fr 1fr; }
+    .optional-card { grid-column: span 2; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .founder-grid { grid-template-columns: 1fr; }
+    .founder-visual { display: none; }
+    .future-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .about-two-col { grid-template-columns: 1fr; gap: 36px; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .subject-layout { grid-template-columns: 1fr; }
+    .subject-sidebar { position: static; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer-brand { grid-column: span 2; }
+  }
+  @media (max-width: 600px) {
+    .why-grid, .subjects-grid, .steps-grid, .future-grid, .values-grid { grid-template-columns: 1fr; }
+    .optional-card, .coming-soon-overlay { grid-column: span 1; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  📧 For support & suggestions: 
+  <a href="mailto:pavan.saini@thelegallaunge.com">pavan.saini@thelegallaunge.com</a>
+  &nbsp;|&nbsp; 🎓 Free Legal Education for Every LLB Student in India
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="showPage('home')">
+      <div class="nav-logo">TL</div>
+      <div class="nav-brand-text">
+        <span class="brand-main">The Legal Launge</span>
+        <span class="brand-sub">Free Legal Education</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" id="nav-home" onclick="showPage('home'); return false;">Home</a></li>
+      <li><a href="#" id="nav-about" onclick="showPage('about'); return false;">About</a></li>
+      <li><a href="#" id="nav-courses" onclick="showPage('courses'); return false;">Courses</a></li>
+      <li><a href="#" id="nav-subject" onclick="showPage('subject'); return false;">Subject</a></li>
+      <li><a href="#" id="nav-contact" onclick="showPage('contact'); return false;">Contact</a></li>
+    </ul>
+    <a href="#" class="btn btn-primary nav-cta" onclick="showPage('courses'); return false;">Start Learning →</a>
+    <div class="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home'); toggleMobile(); return false;">Home</a>
+    <a href="#" onclick="showPage('about'); toggleMobile(); return false;">About</a>
+    <a href="#" onclick="showPage('courses'); toggleMobile(); return false;">Courses</a>
+    <a href="#" onclick="showPage('subject'); toggleMobile(); return false;">Subject Preview</a>
+    <a href="#" onclick="showPage('contact'); toggleMobile(); return false;">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-scale">§</div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">Free Legal Education Platform</div>
+        <h1>Learn Law.<br><span>Smarter. Faster.</span><br>For Free.</h1>
+        <p>A dedicated initiative to make legal education accessible, structured, and exam-oriented for every LLB student in India — starting with the LL.B. (Hons.) 3-Year Program of <strong style="color:rgba(255,255,255,0.9)">DAVV, Indore</strong>.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" onclick="showPage('courses'); return false;">Explore Courses →</a>
+          <a href="#" class="btn btn-outline" onclick="showPage('about'); return false;">About the Platform</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card"><div class="num">6</div><div class="label">Semesters Covered</div></div>
+          <div class="stat-card"><div class="num">100%</div><div class="label">Free Forever</div></div>
+          <div class="stat-card"><div class="num">27+</div><div class="label">Years of Expertise</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">📚 What You Will Find Here</div>
+        <ul class="feature-list">
+          <li>Chapter-wise & Unit-wise Notes</li>
+          <li>Case Law Summaries</li>
+          <li>Past 5-Year Question Banks (DAVV)</li>
+          <li>Model Answers — High-Scoring Format</li>
+          <li>MCQs & Practice Tests</li>
+          <li>Downloadable PDFs <span class="tag">Coming Soon</span></li>
+          <li>University-wise Syllabus Coverage</li>
+          <li>Video Lectures <span class="tag">Coming Soon</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS PLATFORM -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Why We Exist</span>
+        <h2>Legal Education, Reimagined</h2>
+        <p>We solve the biggest problems faced by law students across India — for free.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">📝</div>
+          <h3>Structured Notes</h3>
+          <p>Every chapter follows a uniform structure — overview, notes, case laws, PYQs, model answers, MCQs, and quick revision sheets.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⚖️</div>
+          <h3>Case Law Integration</h3>
+          <p>Important landmark judgments explained in simple, exam-ready language. No more decoding dense law reports.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <h3>Exam-Oriented</h3>
+          <p>Chapter-wise PYQs and model answers designed to help you score high in DAVV university exams.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💸</div>
+          <h3>Completely Free</h3>
+          <p>No coaching fees. No paywalls. No subscriptions. Quality legal education, accessible to every student.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏛️</div>
+          <h3>University-Aligned</h3>
+          <p>Content mapped directly to the DAVV Indore LL.B. (Hons.) 3-Year syllabus. More universities coming soon.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🧠</div>
+          <h3>Think Like a Lawyer</h3>
+          <p>Our purpose is not just to teach law — but to empower students to analyse, argue, and think like legal professionals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES PREVIEW -->
+  <section class="courses-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Curriculum</span>
+        <h2>LL.B. (Hons.) – 3 Years</h2>
+        <p>DAVV Indore • All 6 Semesters • Chapter-wise Content</p>
+        <div class="divider"></div>
+      </div>
+      <div class="semester-tabs">
+        <button class="sem-tab active">Semester I</button>
+        <button class="sem-tab">Semester II</button>
+        <button class="sem-tab">Semester III</button>
+        <button class="sem-tab">Semester IV</button>
+        <button class="sem-tab">Semester V</button>
+        <button class="sem-tab">Semester VI</button>
+      </div>
+      <div id="sem1-content">
+        <div class="subjects-grid">
+          <div class="subject-card" onclick="showPage('subject')">
+            <div class="paper-code">Paper I</div>
+            <h3>Constitutional Law – I</h3>
+            <p>Foundations of the Indian Constitution — Preamble, Fundamental Rights, Directive Principles, and government structure.</p>
+            <div class="subject-includes">
+              <span class="include-pill">Notes</span>
+              <span class="include-pill">Case Laws</span>
+              <span class="include-pill">PYQs</span>
+              <span class="include-pill">MCQs</span>
+            </div>
+            <a href="#" class="subject-link" onclick="showPage('subject'); return false;">View Subject →</a>
+          </div>
+          <div class="subject-card" onclick="showPage('subject')">
+            <div class="paper-code">Paper II</div>
+            <h3>Law of Contract – I</h3>
+            <p>Contract formation, enforceability, void and voidable agreements, remedies, damages, and the Specific Relief Act.</p>
+            <div class="subject-includes">
+              <span class="include-pill">Notes</span>
+              <span class="include-pill">Case Laws</span>
+              <span class="include-pill">PYQs</span>
+              <span class="include-pill">MCQs</span>
+            </div>
+            <a href="#" class="subject-link" onclick="showPage('subject'); return false;">View Subject →</a>
+          </div>
+          <div class="subject-card">
+            <div class="paper-code">Paper III</div>
+            <h3>Labour & Industrial Law</h3>
+            <p>Industrial jurisprudence, labour policies, trade unions, industrial disputes, wages, factories, and social security laws.</p>
+            <div class="subject-includes">
+              <span class="include-pill">Notes</span>
+              <span class="include-pill">Case Laws</span>
+              <span class="include-pill">PYQs</span>
+              <span class="include-pill">MCQs</span>
+            </div>
+            <a href="#" class="subject-link">View Subject →</a>
+          </div>
+          <div class="subject-card">
+            <div class="paper-code">Paper IV</div>
+            <h3>Family Law – I (Hindu Law)</h3>
+            <p>Hindu marriage, divorce, adoption, guardianship, succession, and the Hindu Undivided Family system.</p>
+            <div class="subject-includes">
+              <span class="include-pill">Notes</span>
+              <span class="include-pill">Case Laws</span>
+              <span class="include-pill">PYQs</span>
+              <span class="include-pill">MCQs</span>
+            </div>
+            <a href="#" class="subject-link">View Subject →</a>
+          </div>
+          <div class="subject-card">
+            <div class="paper-code">Paper V</div>
+            <h3>Gender Justice & Feminist Jurisprudence</h3>
+            <p>Gender inequality, feminist thought, personal laws, inheritance rights, matrimonial issues, and social welfare laws.</p>
+            <div class="subject-includes">
+              <span class="include-pill">Notes</span>
+              <span class="include-pill">Case Laws</span>
+              <span class="include-pill">PYQs</span>
+              <span class="include-pill">MCQs</span>
+            </div>
+            <a href="#" class="subject-link">View Subject →</a>
+          </div>
+          <div class="optional-card">
+            <div class="optional-label">📋 Optional Paper (Choose One)</div>
+            <div class="optional-options">
+              <button class="opt-btn">A) Women & Criminal Law</button>
+              <button class="opt-btn">B) Health Law</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sem-placeholder" class="hidden">
+        <div class="coming-soon-overlay">
+          <span style="font-size:48px">🚧</span>
+          <span>This semester's content is being prepared — check back soon!</span>
+          <a href="#" class="btn btn-navy" style="margin-top:20px" onclick="return false;">Notify Me When Ready</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">How to Study</span>
+        <h2>Your Perfect Study Path</h2>
+        <p>Follow these four steps to get the most out of every subject.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <span class="step-icon">📖</span>
+          <h4>Read Unit Notes</h4>
+          <p>Start with clear, structured unit-wise and chapter-wise notes in student-friendly language.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <span class="step-icon">⚖️</span>
+          <h4>Study Case Laws</h4>
+          <p>Read landmark judgments explained in concise, exam-ready summaries.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <span class="step-icon">📝</span>
+          <h4>Practice PYQs</h4>
+          <p>Attempt past 5-year DAVV questions and write structured model answers.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <span class="step-icon">🎯</span>
+          <h4>Revise with MCQs</h4>
+          <p>Test your knowledge with MCQs and quick revision sheets before exams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER PREVIEW -->
+  <section class="founder-section">
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-visual">
+          <div class="founder-avatar">👨‍⚖️
+            <div class="founder-badge">
+              <div class="yrs">27+</div>
+              <div class="yrs-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+        <div class="founder-content">
+          <span class="eyebrow">About the Founder</span>
+          <h2>Adv. Pavan Kumar Saini</h2>
+          <div class="founder-title">Advocate • Educator • Legal Researcher</div>
+          <p class="founder-bio">With over 27 years of cross-functional professional experience and a passion for student empowerment, Adv. Pavan Kumar Saini created this platform with one mission: to ensure that every LLB student in India has access to high-quality, structured legal education — completely free.</p>
+          <ul class="cred-list">
+            <li>Advocate, Bar Council of India</li>
+            <li>M.Com, MBE & LL.B. (Hons.) – DAVV, Indore (First Division)</li>
+            <li>Certification in Intellectual Property Rights – IIT Guwahati</li>
+            <li>Postgraduate Studies – Queen Mary University of London</li>
+            <li>Expert in legal research, compliance, operations & academic development</li>
+          </ul>
+          <div class="founder-links">
+            <a href="#" class="btn btn-navy" onclick="showPage('about'); return false;">Full Profile →</a>
+            <a href="https://www.linkedin.com/in/adv-pavan-k-saini-75016424/" target="_blank" class="btn btn-outline" style="background:transparent; color:var(--navy); border-color:var(--navy);">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE EXPANSION -->
+  <section class="future-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">What's Next</span>
+        <h2>The Road Ahead</h2>
+        <p>We are building India's most comprehensive free legal education ecosystem.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="future-grid">
+        <div class="future-card"><span class="future-icon">🎓</span><div><h4>BA-LLB 5-Year Syllabus</h4><p>Expanding to cover integrated programs</p></div></div>
+        <div class="future-card"><span class="future-icon">⚖️</span><div><h4>Judiciary Preparation</h4><p>Structured prep for judicial services</p></div></div>
+        <div class="future-card"><span class="future-icon">🌐</span><div><h4>IPR & Arbitration Modules</h4><p>Specialized practice-area courses</p></div></div>
+        <div class="future-card"><span class="future-icon">🎥</span><div><h4>Video Lectures</h4><p>Visual learning for complex topics</p></div></div>
+        <div class="future-card"><span class="future-icon">📱</span><div><h4>Mobile App</h4><p>Study anywhere, anytime</p></div></div>
+        <div class="future-card"><span class="future-icon">🏫</span><div><h4>More Universities</h4><p>Beyond DAVV — expanding nationwide</p></div></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-home -->
+
+
+<!-- ===== ABOUT PAGE ===== -->
+<div id="page-about" class="page hidden">
+  <div class="about-hero">
+    <div class="container" style="position:relative;z-index:2">
+      <div class="tag" style="margin-bottom:18px">Our Story</div>
+      <h1>About <span>The Legal Launge</span></h1>
+      <p>A free, student-centric legal learning initiative built to make high-quality legal education accessible to every LLB student in India.</p>
+    </div>
+  </div>
+
+  <div class="about-body">
+    <div class="container">
+
+      <!-- Purpose -->
+      <div class="about-two-col">
+        <div>
+          <h2>The Problem We're Solving</h2>
+          <p>Legal education in India has long been plagued by structural challenges that put quality content out of reach for most students. Expensive coaching classes, overly dense textbooks, and a lack of organised study material leave students unprepared for university exams and the legal profession.</p>
+          <p>We identified these core pain points and built this platform to solve every one of them.</p>
+          <div class="problem-grid">
+            <div class="problem-item"><p>Lack of structured notes</p></div>
+            <div class="problem-item"><p>Limited access to past papers</p></div>
+            <div class="problem-item"><p>Expensive coaching classes</p></div>
+            <div class="problem-item"><p>Overly complex textbooks</p></div>
+            <div class="problem-item"><p>No single platform for all subjects</p></div>
+            <div class="problem-item"><p>Difficulty understanding case laws</p></div>
+          </div>
+        </div>
+        <div>
+          <h2>Our Solution</h2>
+          <p>The Legal Launge provides a comprehensive, chapter-wise legal education system that blends professional accuracy with student-friendly language. Every subject, every unit, every chapter — structured for maximum exam performance.</p>
+          <p style="margin-bottom:24px">We ensure that studying law is no longer about struggling through dense texts — it's about building real understanding, one chapter at a time.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div class="solution-item"><p>Free, high-quality content — forever</p></div>
+            <div class="solution-item"><p>Simple explanations for complex topics</p></div>
+            <div class="solution-item"><p>Exam-oriented preparation material</p></div>
+            <div class="solution-item"><p>Uniform structure for all subjects</p></div>
+            <div class="solution-item"><p>Integrated case laws and PYQs</p></div>
+            <div class="solution-item"><p>A friendly, pressure-free learning environment</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Approach -->
+      <div style="margin-bottom:80px">
+        <div class="section-header" style="text-align:left;margin-bottom:36px">
+          <span class="eyebrow">Our Approach</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);text-align:left">Every Chapter. Complete Clarity.</h2>
+          <div class="divider" style="margin:12px 0 0"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:12px;flex-wrap:wrap">
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">📋</div><div style="font-size:12px">Overview</div></div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">📝</div><div style="font-size:12px">Notes</div></div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">⚖️</div><div style="font-size:12px">Case Laws</div></div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">❓</div><div style="font-size:12px">PYQs</div></div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">✍️</div><div style="font-size:12px">Model Answers</div></div>
+          <div style="background:var(--navy);color:var(--white);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif"><div style="font-size:20px;margin-bottom:8px">🎯</div><div style="font-size:12px">MCQs</div></div>
+          <div style="background:var(--gold);color:var(--navy);border-radius:10px;padding:20px 14px;text-align:center;font-family:'DM Sans',sans-serif;font-weight:600"><div style="font-size:20px;margin-bottom:8px">⚡</div><div style="font-size:12px">Quick Revision</div></div>
+        </div>
+      </div>
+
+      <!-- Founder -->
+      <div style="background:var(--cream);border-radius:var(--radius-lg);padding:56px;margin-bottom:80px;border:1px solid rgba(11,29,58,0.07)">
+        <div class="section-header" style="text-align:left;margin-bottom:40px">
+          <span class="eyebrow">Founder's Message</span>
+          <h2 style="font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);text-align:left;margin-bottom:0">Adv. Pavan Kumar Saini</h2>
+          <div class="divider" style="margin:14px 0 0"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+          <div>
+            <p style="font-size:18px;color:var(--navy);font-family:'Playfair Display',serif;font-style:italic;line-height:1.7;margin-bottom:24px">"I created The Legal Launge with one belief: that every student, regardless of their financial background, deserves access to the same quality of legal education."</p>
+            <p style="font-size:15px;color:var(--gray-700);line-height:1.8;margin-bottom:16px">Having studied law at DAVV Indore, pursued postgraduate studies at Queen Mary University of London, and practised at the Bar Council of India, I have seen both the strengths and the gaps in legal education firsthand.</p>
+            <p style="font-size:15px;color:var(--gray-700);line-height:1.8">This platform is my contribution to every student who is willing to work hard — I am simply removing the barriers in their way.</p>
+          </div>
+          <div>
+            <ul class="cred-list">
+              <li>Advocate — Bar Council of India</li>
+              <li>LL.B. (Hons.) – DAVV, Indore (First Division)</li>
+              <li>Master of Commerce (M.Com)</li>
+              <li>Master in Business Economics (MBE)</li>
+              <li>Certification in Intellectual Property Rights — IIT Guwahati</li>
+              <li>Postgraduate Studies — Queen Mary University of London</li>
+              <li>27+ years of cross-functional professional experience</li>
+              <li>Expertise: Legal research, compliance, operations & academic development</li>
+            </ul>
+            <div class="founder-links" style="margin-top:24px">
+              <a href="https://www.linkedin.com/in/adv-pavan-k-saini-75016424/" target="_blank" class="btn btn-navy">Connect on LinkedIn ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="section-header">
+        <span class="eyebrow">Our Commitment</span>
+        <h2>What We Stand For</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">🆓</div><h4>Free Access</h4><p>No fees. No barriers. Quality education for all.</p></div>
+        <div class="value-card"><div class="value-icon">🏆</div><h4>High Quality</h4><p>Professional accuracy in every note and answer.</p></div>
+        <div class="value-card"><div class="value-icon">🔄</div><h4>Regular Updates</h4><p>Content updated to reflect current law and exams.</p></div>
+        <div class="value-card"><div class="value-icon">🎯</div><h4>Student First</h4><p>Every decision puts the student's learning first.</p></div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end page-about -->
+
+
+<!-- ===== COURSES PAGE ===== -->
+<div id="page-courses" class="page hidden">
+  <div class="about-hero">
+    <div class="container" style="position:relative;z-index:2;text-align:center">
+      <div class="tag" style="margin-bottom:18px">LL.B. (Hons.) 3-Year Program</div>
+      <h1>Courses & <span>Subjects</span></h1>
+      <p>DAVV Indore • All 6 Semesters • Chapter-wise Content • 100% Free</p>
+    </div>
+  </div>
+  <section class="courses-section" style="padding-top:72px">
+    <div class="container">
+      <!-- Semester Overview -->
+      <div class="section-header">
+        <span class="eyebrow">Semester I</span>
+        <h2>Foundation of Indian Law</h2>
+        <p>This semester builds the core pillars of your legal education — Constitutional Law, Contract Law, Labour Law, Family Law, and Gender Justice.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="subjects-grid">
+        <div class="subject-card" onclick="showPage('subject')">
+          <div class="paper-code">Paper I</div>
+          <h3>Constitutional Law – I</h3>
+          <p>Foundations of the Indian Constitution — Preamble, Fundamental Rights, Directive Principles, Union & State structure.</p>
+          <div class="subject-includes">
+            <span class="include-pill">5 Units</span>
+            <span class="include-pill">Notes</span>
+            <span class="include-pill">Case Laws</span>
+            <span class="include-pill">PYQs</span>
+            <span class="include-pill">MCQs</span>
+          </div>
+          <a href="#" class="subject-link" onclick="showPage('subject'); return false;">View Subject →</a>
+        </div>
+        <div class="subject-card" onclick="showPage('subject')">
+          <div class="paper-code">Paper II</div>
+          <h3>Law of Contract – I</h3>
+          <p>Contract formation, enforceability, void and voidable agreements, remedies, damages, and the Specific Relief Act.</p>
+          <div class="subject-includes">
+            <span class="include-pill">5 Units</span>
+            <span class="include-pill">Notes</span>
+            <span class="include-pill">Case Laws</span>
+            <span class="include-pill">PYQs</span>
+            <span class="include-pill">MCQs</span>
+          </div>
+          <a href="#" class="subject-link" onclick="showPage('subject'); return false;">View Subject →</a>
+        </div>
+        <div class="subject-card">
+          <div class="paper-code">Paper III</div>
+          <h3>Labour & Industrial Law</h3>
+          <p>Industrial jurisprudence, labour policies, trade unions, industrial disputes, wages, factories, and social security laws.</p>
+          <div class="subject-includes">
+            <span class="include-pill">Notes</span>
+            <span class="include-pill">Case Laws</span>
+            <span class="include-pill">PYQs</span>
+            <span class="include-pill">MCQs</span>
+          </div>
+          <a href="#" class="subject-link">View Subject →</a>
+        </div>
+        <div class="subject-card">
+          <div class="paper-code">Paper IV</div>
+          <h3>Family Law – I (Hindu Law)</h3>
+          <p>Hindu marriage, divorce, adoption, guardianship, succession, and the Hindu Undivided Family system.</p>
+          <div class="subject-includes">
+            <span class="include-pill">Notes</span>
+            <span class="include-pill">Case Laws</span>
+            <span class="include-pill">PYQs</span>
+            <span class="include-pill">MCQs</span>
+          </div>
+          <a href="#" class="subject-link">View Subject →</a>
+        </div>
+        <div class="subject-card">
+          <div class="paper-code">Paper V</div>
+          <h3>Gender Justice & Feminist Jurisprudence</h3>
+          <p>Gender inequality, feminist thought, personal laws, inheritance rights, matrimonial issues, and social welfare laws.</p>
+          <div class="subject-includes">
+            <span class="include-pill">Notes</span>
+            <span class="include-pill">Case Laws</span>
+            <span class="include-pill">PYQs</span>
+            <span class="include-pill">MCQs</span>
+          </div>
+          <a href="#" class="subject-link">View Subject →</a>
+        </div>
+        <div class="optional-card" style="grid-column:span 2">
+          <div class="optional-label">📋 Optional Paper (Choose One)</div>
+          <div class="optional-options">
+            <button class="opt-btn">A) Women & Criminal Law</button>
+            <button class="opt-btn">B) Health Law</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:60px;text-align:center;padding:48px;background:rgba(11,29,58,0.03);border:1px dashed var(--gray-300);border-radius:var(--radius-lg)">
+        <div style="font-size:40px;margin-bottom:12px">🔜</div>
+        <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:8px">Semesters II–VI Coming Soon</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--gray-500)">We are actively developing content for all remaining semesters. Stay tuned!</p>
+      </div>
+    </div>
+  </section>
+</div><!-- end page-courses -->
+
+
+<!-- ===== SUBJECT DETAIL PAGE (Contract Law I) ===== -->
+<div id="page-subject" class="page hidden">
+  <div class="subject-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a onclick="showPage('courses')">Courses</a>
+        <span>›</span>
+        <a onclick="showPage('courses')">Semester I</a>
+        <span>›</span>
+        Law of Contract – I
+      </div>
+      <div class="paper-code" style="background:rgba(201,164,75,0.2);margin-bottom:14px">Paper II</div>
+      <h1>Law of Contract – I</h1>
+      <p>Contract formation, enforceability, void and voidable agreements, remedies, damages, and the Specific Relief Act.</p>
+      <div class="subject-meta">
+        <span class="meta-pill">⏱ 5 Units</span>
+        <span class="meta-pill">📚 25+ Chapters</span>
+        <span class="meta-pill">⚖️ 30+ Case Laws</span>
+        <span class="meta-pill">❓ 5-Year PYQs</span>
+        <span class="meta-pill">🎯 MCQs Included</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="subject-body">
+    <div class="container">
+      <div class="subject-layout">
+        <div class="units-list">
+          <h2 style="font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);margin-bottom:24px">Unit-wise Content</h2>
+
+          <!-- Unit I -->
+          <div class="unit-accordion">
+            <div class="unit-header" onclick="toggleUnit(this)">
+              <div class="unit-header-left">
+                <div class="unit-num">I</div>
+                <h3>Introduction to Contract Law</h3>
+              </div>
+              <span class="unit-toggle">▼</span>
+            </div>
+            <div class="unit-body open">
+              <div class="chapter-item">
+                <span class="chapter-name">History & Nature of Contractual Obligations</span>
+                <div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">MCQs</span></div>
+              </div>
+              <div class="chapter-item">
+                <span class="chapter-name">Agreement & Contract — Definitions, Elements, Types</span>
+                <div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">PYQ</span></div>
+              </div>
+              <div class="chapter-item">
+                <span class="chapter-name">Proposal & Acceptance</span>
+                <div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">MCQs</span></div>
+              </div>
+              <div class="chapter-item">
+                <span class="chapter-name">Consideration</span>
+                <div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">PYQ</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit II -->
+          <div class="unit-accordion">
+            <div class="unit-header" onclick="toggleUnit(this)">
+              <div class="unit-header-left">
+                <div class="unit-num">II</div>
+                <h3>Capacity, Consent & Legality</h3>
+              </div>
+              <span class="unit-toggle">▼</span>
+            </div>
+            <div class="unit-body">
+              <div class="chapter-item"><span class="chapter-name">Capacity to Contract</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Free Consent</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">PYQ</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Undue Influence</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Misrepresentation</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Fraud</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">MCQs</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Mistake</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Unlawful Consideration & Objects</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Fraudulent Agreements</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">PYQ</span></div></div>
+            </div>
+          </div>
+
+          <!-- Unit III -->
+          <div class="unit-accordion">
+            <div class="unit-header" onclick="toggleUnit(this)">
+              <div class="unit-header-left">
+                <div class="unit-num">III</div>
+                <h3>Void & Voidable Agreements</h3>
+              </div>
+              <span class="unit-toggle">▼</span>
+            </div>
+            <div class="unit-body">
+              <div class="chapter-item"><span class="chapter-name">Agreements Injurious to Person or Property</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Immoral Agreements</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Agreements Against Public Policy</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Void & Voidable Agreements</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">PYQ</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Contracts Without Consideration</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Agreements in Restraint of Marriage, Trade, etc.</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Contingent & Wagering Contracts</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">MCQs</span></div></div>
+            </div>
+          </div>
+
+          <!-- Unit IV -->
+          <div class="unit-accordion">
+            <div class="unit-header" onclick="toggleUnit(this)">
+              <div class="unit-header-left">
+                <div class="unit-num">IV</div>
+                <h3>Contractual Obligations & Remedies</h3>
+              </div>
+              <span class="unit-toggle">▼</span>
+            </div>
+            <div class="unit-body">
+              <div class="chapter-item"><span class="chapter-name">Discharge of Contract</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">PYQ</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Damages — Types, Remoteness, Assessment</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Government Contracts</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Quasi-Contractual Obligations</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">MCQs</span></div></div>
+            </div>
+          </div>
+
+          <!-- Unit V -->
+          <div class="unit-accordion">
+            <div class="unit-header" onclick="toggleUnit(this)">
+              <div class="unit-header-left">
+                <div class="unit-num">V</div>
+                <h3>Specific Relief Act</h3>
+              </div>
+              <span class="unit-toggle">▼</span>
+            </div>
+            <div class="unit-body">
+              <div class="chapter-item"><span class="chapter-name">Specific Performance</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Contracts That Can / Cannot Be Specifically Enforced</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">PYQ</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Persons Against Whom Specific Enforcement Can Be Ordered</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Rescission & Cancellation</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Injunctions — Temporary, Perpetual, Mandatory</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">Cases</span><span class="chapter-pill">MCQs</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Declaratory Decrees</span><div class="chapter-pills"><span class="chapter-pill">Notes</span></div></div>
+              <div class="chapter-item"><span class="chapter-name">Discretion & Powers of Court</span><div class="chapter-pills"><span class="chapter-pill">Notes</span><span class="chapter-pill">PYQ</span></div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="subject-sidebar">
+          <div class="sidebar-card">
+            <h4>📚 Recommended Books</h4>
+            <ul class="sidebar-list">
+              <li>Anson's Law of Contract</li>
+              <li>Avtar Singh – Law of Contract</li>
+              <li>Pollock & Mulla – Indian Contract & Specific Relief</li>
+              <li>P.S. Atiyah – Introduction to the Law of Contract</li>
+              <li>G.C. Cheshire & Fifoot – Law of Contract</li>
+              <li>Kailash Rai – Contract I & Specific Relief Act</li>
+            </ul>
+          </div>
+          <div class="resources-card">
+            <h4>📂 Study Resources</h4>
+            <div class="resource-item"><span class="icon">📝</span>Chapter-wise Notes <span class="coming-badge">Soon</span></div>
+            <div class="resource-item"><span class="icon">⚖️</span>Case Law Summaries <span class="coming-badge">Soon</span></div>
+            <div class="resource-item"><span class="icon">❓</span>Past 5-Year PYQs <span class="coming-badge">Soon</span></div>
+            <div class="resource-item"><span class="icon">✍️</span>Model Answers <span class="coming-badge">Soon</span></div>
+            <div class="resource-item"><span class="icon">🎯</span>MCQs & Practice Tests <span class="coming-badge">Soon</span></div>
+            <div class="resource-item"><span class="icon">⬇️</span>Downloadable PDFs <span class="coming-badge">Soon</span></div>
+          </div>
+          <div style="margin-top:20px">
+            <a href="#" class="btn btn-primary" style="width:100%;justify-content:center" onclick="showToast('Content coming soon!'); return false;">🔔 Notify When Ready</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end page-subject -->
+
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page hidden">
+  <div class="about-hero">
+    <div class="container" style="position:relative;z-index:2;text-align:center">
+      <div class="tag" style="margin-bottom:18px">Get in Touch</div>
+      <h1>Contact & <span>Feedback</span></h1>
+      <p>We welcome suggestions, corrections, collaboration proposals, and student queries. Your input makes this platform better.</p>
+    </div>
+  </div>
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Let's Connect</h2>
+          <p>Whether you have a correction to flag, a suggestion for new content, or just want to say hello — we would love to hear from you.</p>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:pavan.saini@thelegallaunge.com">pavan.saini@thelegallaunge.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/adv-pavan-k-saini-75016424/" target="_blank">Adv. Pavan Kumar Saini</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🏛️</div>
+            <div>
+              <h4>Platform</h4>
+              <p>The Legal Launge — Free Legal Education</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Focus Area</h4>
+              <p>DAVV Indore LL.B. (Hons.) 3-Year Program</p>
+            </div>
+          </div>
+          <div style="margin-top:36px;padding:24px;background:rgba(201,164,75,0.08);border:1px solid rgba(201,164,75,0.2);border-radius:var(--radius)">
+            <p style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-style:italic;line-height:1.6">"Your learning is our priority."</p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gold);margin-top:8px">— Adv. Pavan Kumar Saini, Founder</p>
+          </div>
+        </div>
+        <div>
+          <div class="feedback-form">
+            <h3>Send us a Message</h3>
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="e.g. Rahul Sharma"/>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your.email@example.com"/>
+            </div>
+            <div class="form-group">
+              <label>University / College</label>
+              <input type="text" placeholder="e.g. DAVV Indore"/>
+            </div>
+            <div class="form-group">
+              <label>Type of Query</label>
+              <select>
+                <option>Select a category</option>
+                <option>Content Correction</option>
+                <option>Content Request</option>
+                <option>Collaboration</option>
+                <option>Technical Issue</option>
+                <option>General Feedback</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Your Message</label>
+              <textarea placeholder="Share your feedback, suggestions, or query here..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="showToast('Thank you! We will get back to you soon.')">Send Message ✉️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- end page-contact -->
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div class="nav-logo" style="width:44px;height:44px;font-size:20px">TL</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white)">The Legal Launge</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:1px;color:var(--gold)">FREE LEGAL EDUCATION</div>
+        </div>
+      </div>
+      <p>A free, student-centric legal learning initiative dedicated to making high-quality legal education accessible to every LLB student in India. Starting with DAVV Indore.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/adv-pavan-k-saini-75016424/" target="_blank" class="social-btn" title="LinkedIn">in</a>
+        <a href="mailto:pavan.saini@thelegallaunge.com" class="social-btn" title="Email">✉</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Platform</h5>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About Us</a></li>
+        <li><a onclick="showPage('courses')">Courses</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Semester I</h5>
+      <ul>
+        <li><a onclick="showPage('subject')">Constitutional Law – I</a></li>
+        <li><a onclick="showPage('subject')">Law of Contract – I</a></li>
+        <li><a onclick="showPage('subject')">Labour & Industrial Law</a></li>
+        <li><a onclick="showPage('subject')">Family Law – I</a></li>
+        <li><a onclick="showPage('subject')">Gender Justice</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Coming Soon</h5>
+      <ul>
+        <li><a>Semesters II – VI</a></li>
+        <li><a>BA-LLB 5-Year</a></li>
+        <li><a>Judiciary Prep</a></li>
+        <li><a>IPR Module</a></li>
+        <li><a>Video Lectures</a></li>
+        <li><a>Mobile App</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span>The Legal Launge</span>. Created by Adv. Pavan Kumar Saini. All rights reserved.</p>
+    <p>🎓 Free Legal Education for Every LLB Student in India</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ─── PAGE ROUTING ───
+  const pages = ['home','about','courses','subject','contact'];
+  function showPage(name) {
+    pages.forEach(p => {
+      const el = document.getElementById('page-' + p);
+      const nav = document.getElementById('nav-' + p);
+      if (el) el.classList.toggle('hidden', p !== name);
+      if (nav) nav.classList.toggle('active', p === name);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ─── MOBILE MENU ───
+  function toggleMobile() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+
+  // ─── SEMESTER TABS ───
+  document.querySelectorAll('.sem-tab').forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.sem-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const s1 = document.getElementById('sem1-content');
+      const sp = document.getElementById('sem-placeholder');
+      if (i === 0) {
+        if (s1) s1.classList.remove('hidden');
+        if (sp) sp.classList.add('hidden');
+      } else {
+        if (s1) s1.classList.add('hidden');
+        if (sp) sp.classList.remove('hidden');
+      }
+    });
+  });
+
+  // ─── UNIT ACCORDION ───
+  function toggleUnit(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.unit-toggle');
+    const isOpen = body.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.unit-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.unit-toggle').forEach(t => t.classList.remove('open'));
+    if (!isOpen) {
+      body.classList.add('open');
+      toggle.classList.add('open');
+    }
+  }
+
+  // ─── TOAST ───
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ─── INIT ───
+  showPage('home');
+</script>
+</body>
+</html>
